@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>hexo 从零搭建(ubuntu) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是我的第一个博客——stone-o.github.io">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo 从零搭建(ubuntu)">
+<meta property="og:url" content="http://yoursite.com/2018/12/01/hexo-从零搭建/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这是我的第一个博客——stone-o.github.io">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-09T10:43:40.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo 从零搭建(ubuntu)">
+<meta name="twitter:description" content="这是我的第一个博客——stone-o.github.io">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo-从零搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/01/hexo-从零搭建/" class="article-date">
+  <time datetime="2018-12-01T15:55:25.000Z" itemprop="datePublished">2018-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo 从零搭建(ubuntu)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我的第一个博客——stone-o.github.io</p>
+<a id="more"></a>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><blockquote>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2></blockquote>
+<h3 id="1、GitHub创建个人仓库"><a href="#1、GitHub创建个人仓库" class="headerlink" title="1、GitHub创建个人仓库"></a>1、GitHub创建个人仓库</h3><p>登录到GitHub,如果没有GitHub帐号，使用你的邮箱注册GitHub帐号：Build software better, together 点击GitHub中的New repository创建新仓库，仓库名应该为：用户名.<a href="http://github.io" target="_blank" rel="noopener">http://github.io</a> 这个用户名使用你的GitHub帐号名称代替，这是固定写法，比如我的仓库名为：stone-o.github.io</p>
+<h3 id="2、安装git"><a href="#2、安装git" class="headerlink" title="2、安装git"></a>2、安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">suao apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后将你的git和github相连，在命令行下运行以下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>生成ssh秘钥文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>再把生成的秘钥文件(~/.ssh/id_rsa.pub)上传到github上，在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi stone-o! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、安装Node-js"><a href="#3、安装Node-js" class="headerlink" title="3、安装Node.js"></a>3、安装Node.js</h3><p>Hexo基于Node.js，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v ;<br>检测npm是否安装成功，在命令行中输入npm -v.<br>如果尚未安装，在Ubuntu中可以直接用apt进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+
+<p>如果上述步骤都已经成功运行，hexo环境就已经搭建完成了。</p>
+<h3 id="4、安装hexo"><a href="#4、安装hexo" class="headerlink" title="4、安装hexo"></a>4、安装hexo</h3><p>使用npm命令进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、初始化你的blog文件夹"><a href="#5、初始化你的blog文件夹" class="headerlink" title="5、初始化你的blog文件夹"></a>5、初始化你的blog文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &#123;blog_home_name&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里的命令都是作用在刚刚创建的文件夹中。</p>
+<p>为了检测我们的网站雏形，分别按顺序输入以下三条命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new test_my_site</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>这些命令在后面作介绍，完成后，打开浏览器输入地址：<br>localhost:4000</p>
+<p>如果能够成功访问，那么就代表你的本地hexo环境搭建完成了。</p>
+<h3 id="6、hexo-常用命令"><a href="#6、hexo-常用命令" class="headerlink" title="6、hexo 常用命令"></a>6、hexo 常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g #安装Hexo</span><br><span class="line">npm update hexo -g #升级 </span><br><span class="line">hexo init #初始化博客</span><br><span class="line"></span><br><span class="line">命令简写</span><br><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</span><br><span class="line">hexo g == hexo generate #生成</span><br><span class="line">hexo s == hexo server #启动服务预览</span><br><span class="line">hexo d == hexo deploy #部署</span><br><span class="line"></span><br><span class="line">hexo server #Hexo会监视文件变动并自动更新，无须重启服务器</span><br><span class="line">hexo server -s #静态模式</span><br><span class="line">hexo server -p 5000 #更改端口</span><br><span class="line">hexo server -i 192.168.1.1 #自定义 IP</span><br><span class="line">hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</span><br></pre></td></tr></table></figure>
+
+<p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
+<h3 id="7、推送到远程"><a href="#7、推送到远程" class="headerlink" title="7、推送到远程"></a>7、推送到远程</h3><p>上面的操作只是在本地预览，接下来要做的就是就是推送到网站，也就是发布网站，让我们的网站可以被更多的人访问。在设置之前，需要解释一个概念，在blog根目录里的_config.yml文件称为站点配置文件。把最后修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/stone-o/stone-o.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>注意：不能缺少冒号后的空格。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/01/hexo-从零搭建/" data-id="cjx38k5ki0000t8udsbtkfj03" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/01/md语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          md语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/14/计算机组成原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">计算机组成原理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/pythonchallenge闯关笔记/">pythonchallenge闯关笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/02/jarvisoj学习笔记/">jarvisoj学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/给Ubuntu软件一个桌面图标/">给Ubuntu软件一个桌面图标</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/md语法/">md语法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/hexo-从零搭建/">hexo 从零搭建(ubuntu)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

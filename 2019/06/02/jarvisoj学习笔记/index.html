@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>jarvisoj学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="梦想做一个有理想的ctf选手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jarvisoj学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/jarvisoj学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="梦想做一个有理想的ctf选手">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006WsJS2ly1g3n0k7wwtij30or0e0gn4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0ne6vs5j30qq06z3z4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0q9eaf2j30pu072x5b.jpg">
+<meta property="og:updated_time" content="2019-06-19T12:45:22.133Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jarvisoj学习笔记">
+<meta name="twitter:description" content="梦想做一个有理想的ctf选手">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006WsJS2ly1g3n0k7wwtij30or0e0gn4.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jarvisoj学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/02/jarvisoj学习笔记/" class="article-date">
+  <time datetime="2019-06-02T09:34:02.000Z" itemprop="datePublished">2019-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jarvisoj学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>梦想做一个有理想的ctf选手</p>
+<a id="more"></a>
+
+
+<blockquote>
+<h1 id="BASIC"><a href="#BASIC" class="headerlink" title="BASIC"></a>BASIC</h1></blockquote>
+<h2 id="veryeasy"><a href="#veryeasy" class="headerlink" title="veryeasy"></a>veryeasy</h2><pre><code>题目描述：使用基本命令获取flag</code></pre><blockquote>
+<p>拿到文件先file一下，看文件类型。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/006WsJS2ly1g3n0k7wwtij30or0e0gn4.jpg" alt></p>
+<blockquote>
+<p>确定类型进IDA进行下一步观察。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0ne6vs5j30qq06z3z4.jpg" alt></p>
+<p>在字符串中发现flag</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0q9eaf2j30pu072x5b.jpg" alt></p>
+<h2 id="BASE64"><a href="#BASE64" class="headerlink" title="BASE64?"></a>BASE64?</h2><pre><code>题目描述：
+GUYDIMZVGQ2DMN3CGRQTONJXGM3TINLGG42DGMZXGM3TINLGGY4DGNBXGYZTGNLGGY3DGNBWMU3WI===</code></pre><blockquote>
+<p>看的字符串末尾等号，大概猜想字符串是base系列加密，3个等号又不符合base64，所以试下base32。<br>解密之后：504354467b4a7573745f743373745f683476335f66346e7d，十六进制，开整，获得flag。</p>
+</blockquote>
+<h2 id="手贱"><a href="#手贱" class="headerlink" title="手贱"></a>手贱</h2><pre><code>题目描述：某天A君的网站被日，管理员密码被改，死活登不上，去数据库一看，啥，这密码md5不是和原来一样吗？为啥登不上咧？
+
+d78b6f302l25cdc811adfe8d4e7c9fd34
+
+请提交PCTF{原来的管理员密码}</code></pre><blockquote>
+<p>为啥登不上，这是个33位的字符串，不是md5格式，一定是多了一位，再仔细一看，竟然有比f还靠后的，删除‘l’，解密。</p>
+</blockquote>
+<h2 id="段子"><a href="#段子" class="headerlink" title="段子"></a>段子</h2><pre><code>程序猿圈子里有个非常著名的段子：
+
+手持两把锟斤拷，口中疾呼烫烫烫。
+
+请提交其中&quot;锟斤拷&quot;的十六进制编码。(大写)
+
+FLAG: PCTF{你的答案}</code></pre><blockquote>
+<p>百度一下：锟斤拷——锟（0xEFBF），斤（0xBDEF），拷（0xBFBD）</p>
+</blockquote>
+<p>使用python：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'PCTF&#123;%s&#125;'</span> % <span class="string">b'锟斤拷'</span>.encode(<span class="string">'hex'</span>).upper()</span><br><span class="line"><span class="string">'PCTF&#123;EFBFBDEFBFBD&#125;'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="美丽的实验室logo"><a href="#美丽的实验室logo" class="headerlink" title="美丽的实验室logo"></a>美丽的实验室logo</h2><pre><code>题目描述：出题人丢下个logo就走了，大家自己看着办吧</code></pre><blockquote>
+<p>进winhex没看出什么，跑一边StegSolve,flag在frame里藏着。</p>
+</blockquote>
+<hr>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="findkey"><a href="#findkey" class="headerlink" title="findkey"></a>findkey</h2><pre><code>题目描述：FLAG就是你输入的key</code></pre><blockquote>
+<p>file一下，是pyc文件，更改后缀，使用uncompyle6反编译，获得源代码。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">stone@ubuntu:~/Desktop$ cat findkey.py</span><br><span class="line"><span class="comment"># uncompyle6 version 3.3.3</span></span><br><span class="line"><span class="comment"># Python bytecode 2.7 (62211)</span></span><br><span class="line"><span class="comment"># Decompiled from: Python 3.6.7 (default, Oct 22 2018, 11:32:17) </span></span><br><span class="line"><span class="comment"># [GCC 8.2.0]</span></span><br><span class="line"><span class="comment"># Embedded file name: findkey</span></span><br><span class="line"><span class="comment"># Compiled at: 2016-04-30 02:54:18</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">lookup = [<span class="number">196</span>,<span class="number">153</span>, <span class="number">149</span>,<span class="number">206</span>, <span class="number">17</span>,<span class="number">221</span>, <span class="number">10</span>, <span class="number">217</span>, <span class="number">167</span>, <span class="number">18</span>, <span class="number">36</span>, <span class="number">135</span>, <span class="number">103</span>, <span class="number">61</span>, <span class="number">111</span>, <span class="number">31</span>, <span class="number">92</span>, <span class="number">152</span>, <span class="number">21</span>, <span class="number">228</span>, <span class="number">105</span>, <span class="number">191</span>, <span class="number">173</span>, <span class="number">41</span>, <span class="number">2</span>, <span class="number">245</span>, <span class="number">23</span>, <span class="number">144</span>, <span class="number">1</span>, <span class="number">246</span>, <span class="number">89</span>, <span class="number">178</span>, <span class="number">182</span>, <span class="number">119</span>, <span class="number">38</span>, <span class="number">85</span>, <span class="number">48</span>, <span class="number">226</span>, <span class="number">165</span>, <span class="number">241</span>, <span class="number">166</span>, <span class="number">214</span>, <span class="number">71</span>, <span class="number">90</span>, <span class="number">151</span>, <span class="number">3</span>, <span class="number">109</span>, <span class="number">169</span>, <span class="number">150</span>, <span class="number">224</span>, <span class="number">69</span>, <span class="number">156</span>, <span class="number">158</span>, <span class="number">57</span>, <span class="number">181</span>, <span class="number">29</span>, <span class="number">200</span>, <span class="number">37</span>, <span class="number">51</span>, <span class="number">252</span>, <span class="number">227</span>, <span class="number">93</span>, <span class="number">65</span>, <span class="number">82</span>, <span class="number">66</span>, <span class="number">80</span>, <span class="number">170</span>, <span class="number">77</span>, <span class="number">49</span>, <span class="number">177</span>, <span class="number">81</span>, <span class="number">94</span>, <span class="number">202</span>, <span class="number">107</span>, <span class="number">25</span>, <span class="number">73</span>, <span class="number">148</span>, <span class="number">98</span>, <span class="number">129</span>, <span class="number">231</span>, <span class="number">212</span>, <span class="number">14</span>, <span class="number">84</span>, <span class="number">121</span>, <span class="number">174</span>, <span class="number">171</span>, <span class="number">64</span>, <span class="number">180</span>, <span class="number">233</span>, <span class="number">74</span>, <span class="number">140</span>, <span class="number">242</span>, <span class="number">75</span>, <span class="number">104</span>, <span class="number">253</span>, <span class="number">44</span>, <span class="number">39</span>, <span class="number">87</span>, <span class="number">86</span>, <span class="number">27</span>, <span class="number">68</span>, <span class="number">22</span>, <span class="number">55</span>, <span class="number">76</span>, <span class="number">35</span>, <span class="number">248</span>, <span class="number">96</span>, <span class="number">5</span>, <span class="number">56</span>, <span class="number">20</span>, <span class="number">161</span>, <span class="number">213</span>, <span class="number">238</span>, <span class="number">220</span>, <span class="number">72</span>, <span class="number">100</span>, <span class="number">247</span>, <span class="number">8</span>, <span class="number">63</span>, <span class="number">249</span>, <span class="number">145</span>, <span class="number">243</span>, <span class="number">155</span>, <span class="number">222</span>, <span class="number">122</span>, <span class="number">32</span>, <span class="number">43</span>, <span class="number">186</span>, <span class="number">0</span>, <span class="number">102</span>, <span class="number">216</span>, <span class="number">126</span>, <span class="number">15</span>, <span class="number">42</span>, <span class="number">115</span>, <span class="number">138</span>, <span class="number">240</span>, <span class="number">147</span>, <span class="number">229</span>, <span class="number">204</span>, <span class="number">117</span>, <span class="number">223</span>, <span class="number">141</span>, <span class="number">159</span>, <span class="number">131</span>, <span class="number">232</span>, <span class="number">124</span>, <span class="number">254</span>, <span class="number">60</span>, <span class="number">116</span>, <span class="number">46</span>, <span class="number">113</span>, <span class="number">79</span>, <span class="number">16</span>, <span class="number">128</span>, <span class="number">6</span>, <span class="number">251</span>, <span class="number">40</span>, <span class="number">205</span>, <span class="number">137</span>, <span class="number">199</span>, <span class="number">83</span>, <span class="number">54</span>, <span class="number">188</span>, <span class="number">19</span>, <span class="number">184</span>, <span class="number">201</span>, <span class="number">110</span>, <span class="number">255</span>, <span class="number">26</span>, <span class="number">91</span>, <span class="number">211</span>, <span class="number">132</span>, <span class="number">160</span>, <span class="number">168</span>, <span class="number">154</span>, <span class="number">185</span>, <span class="number">183</span>, <span class="number">244</span>, <span class="number">78</span>, <span class="number">33</span>, <span class="number">123</span>, <span class="number">28</span>, <span class="number">59</span>, <span class="number">12</span>, <span class="number">210</span>, <span class="number">218</span>, <span class="number">47</span>, <span class="number">163</span>, <span class="number">215</span>, <span class="number">209</span>, <span class="number">108</span>, <span class="number">235</span>, <span class="number">237</span>, <span class="number">118</span>, <span class="number">101</span>, <span class="number">24</span>, <span class="number">234</span>, <span class="number">106</span>, <span class="number">143</span>, <span class="number">88</span>, <span class="number">9</span>, <span class="number">136</span>, <span class="number">95</span>, <span class="number">30</span>, <span class="number">193</span>, <span class="number">176</span>, <span class="number">225</span>, <span class="number">198</span>, <span class="number">197</span>, <span class="number">194</span>, <span class="number">239</span>, <span class="number">134</span>, <span class="number">162</span>, <span class="number">192</span>, <span class="number">11</span>, <span class="number">70</span>, <span class="number">58</span>, <span class="number">187</span>, <span class="number">50</span>, <span class="number">67</span>, <span class="number">236</span>, <span class="number">230</span>, <span class="number">13</span>, <span class="number">99</span>, <span class="number">190</span>, <span class="number">208</span>, <span class="number">207</span>, <span class="number">7</span>, <span class="number">53</span>, <span class="number">219</span>, <span class="number">203</span>, <span class="number">62</span>, <span class="number">114</span>, <span class="number">127</span>, <span class="number">125</span>, <span class="number">164</span>, <span class="number">179</span>, <span class="number">175</span>, <span class="number">112</span>, <span class="number">172</span>, <span class="number">250</span>, <span class="number">133</span>, <span class="number">130</span>, <span class="number">52</span>, <span class="number">189</span>, <span class="number">97</span>, <span class="number">146</span>, <span class="number">34</span>, <span class="number">157</span>, <span class="number">120</span>, <span class="number">195</span>, <span class="number">45</span>, <span class="number">4</span>, <span class="number">142</span>, <span class="number">139</span>]</span><br><span class="line">pwda = [<span class="number">188</span>, <span class="number">155</span>, <span class="number">11</span>, <span class="number">58</span>, <span class="number">251</span>, <span class="number">208</span>, <span class="number">204</span>, <span class="number">202</span>, <span class="number">150</span>, <span class="number">120</span>, <span class="number">206</span>, <span class="number">237</span>, <span class="number">114</span>, <span class="number">92</span>, <span class="number">126</span>, <span class="number">6</span>, <span class="number">42</span>]</span><br><span class="line">pwdb = [<span class="number">53</span>, <span class="number">222</span>, <span class="number">230</span>, <span class="number">35</span>, <span class="number">67</span>, <span class="number">248</span>, <span class="number">226</span>, <span class="number">216</span>, <span class="number">17</span>, <span class="number">209</span>, <span class="number">32</span>, <span class="number">2</span>, <span class="number">181</span>, <span class="number">200</span>, <span class="number">171</span>, <span class="number">60</span>, <span class="number">108</span>]</span><br><span class="line">flag = raw_input(<span class="string">'Input your Key:'</span>).strip()</span><br><span class="line"><span class="keyword">if</span> len(flag) != <span class="number">17</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Wrong Key!!'</span></span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line">flag = flag[::<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(flag)):</span><br><span class="line">    <span class="keyword">if</span> ord(flag[i]) + pwda[i] &amp; <span class="number">255</span> != lookup[(i + pwdb[i])]:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Wrong Key!!'</span></span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'Congratulations!!'</span></span><br><span class="line"><span class="comment"># okay decompiling findkey.pyc</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>简单逻辑，输入flag，进行比较，并且限制了长度，那就好写了。写出解密算法。OK</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">17</span>):</span><br><span class="line">	flag += chr(lookup[i+pwdb[i]] - pwda[i] &amp; <span class="number">255</span> )</span><br><span class="line">flag = flag[::<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">print</span> flag</span><br></pre></td></tr></table></figure>
+
+<p>注意：[::-1]是将原字符串先后顺序调换，[:-1]是去掉末尾字符。</p>
+<h2 id="Classical-Crackme"><a href="#Classical-Crackme" class="headerlink" title="Classical Crackme"></a>Classical Crackme</h2><pre><code>题目描述：经典Crackme题目，FLAG就是注册码。</code></pre><blockquote>
+<p>file一下，是32位的windows程序，直接进IDA，发现一段base64，解密后获得flag。</p>
+</blockquote>
+<p>## </p>
+<hr>
+<h1 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h1><h2 id="uncompyle6"><a href="#uncompyle6" class="headerlink" title="uncompyle6"></a>uncompyle6</h2><blockquote>
+<p>遇到一道pyc的逆向题，之前使用的是在线版的<a href="https://tool.lu/pyc/" target="_blank" rel="noopener">pyc解密</a>,偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在<a href="https://github.com/rocky/python-uncompyle6" target="_blank" rel="noopener">项目地址</a>进行下载安装。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle  a.pyc  &gt;  a.py</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/02/jarvisoj学习笔记/" data-id="cjx38k5l20002t8udpb81tt4f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/05/pythonchallenge闯关笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          pythonchallenge闯关笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/02/给Ubuntu软件一个桌面图标/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">给Ubuntu软件一个桌面图标</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/pythonchallenge闯关笔记/">pythonchallenge闯关笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/02/jarvisoj学习笔记/">jarvisoj学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/给Ubuntu软件一个桌面图标/">给Ubuntu软件一个桌面图标</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/md语法/">md语法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/hexo-从零搭建/">hexo 从零搭建(ubuntu)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
