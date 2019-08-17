@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      pythonchallenge学习笔记 | 等了你好久
+      pip换源 | 等了你好久
     
   </title>
   <meta name="author" content="北游">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《pythonchallenge学习笔记》
+			当前文章&nbsp;:&nbsp;《pip换源》
 		
 	</p>
 
@@ -258,18 +258,6 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
 	 
 
 <div class="layout-post">
@@ -277,8 +265,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/06/20/pythonchallenge学习笔记/" itemprop="url">
-		pythonchallenge学习笔记
+	<a href="/2019/08/14/pip换源/" itemprop="url">
+		pip换源
 	</a>
 
 	</div>
@@ -291,9 +279,9 @@
 
 	发布于
 
-	<a href="/2019/06/20/pythonchallenge学习笔记/" itemprop="url">
-		<time datetime="2019-06-20T12:22:22.000Z" itemprop="datePublished">
-	  		2019-06-20
+	<a href="/2019/08/14/pip换源/" itemprop="url">
+		<time datetime="2019-08-14T07:26:15.000Z" itemprop="datePublished">
+	  		2019-08-14
 	  </time>
 	</a>
 	&nbsp;
@@ -309,8 +297,8 @@
 
 	更新于
 
-	<a href="/2019/06/20/pythonchallenge学习笔记/" itemprop="url">
-		<time datetime="2019-06-20T12:22:22.000Z" itemprop="dateUpdated">
+	<a href="/2019/08/14/pip换源/" itemprop="url">
+		<time datetime="2019-08-14T07:26:15.000Z" itemprop="dateUpdated">
 	  		2019-08-14
 	  </time>
 	</a> 
@@ -322,8 +310,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/python/" class=" ">
-			python
+		<a href="/tags/踩坑日记/" class=" ">
+			踩坑日记
 		</a>
 	
 		
@@ -336,38 +324,32 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>为了学学爬虫，决定入门python，无意间找到这个网站，在其中练习练习</p>
-<h2 id="level0-warming-up"><a href="#level0-warming-up" class="headerlink" title="level0 warming up"></a>level0 warming up</h2><p>地址：<a href="http://www.pythonchallenge.com/pc/def/0.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/0.html</a></p>
-<p>提示说：<br><br>①try to change the URL address<br><br>②屏幕中间是2的38次方</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(pow(<span class="number">2</span>,<span class="number">38</span>))</span><br></pre></td></tr></table></figure>
+		<p>先问一下有人见过pip安装网络连接慢或者被墙然后一个一个包在主机里下完再转进Ubuntu里pip安装的吗??</p>
+<p>来过就是见过，我就是。</p>
+<p><img src="/.com//1.png" alt></p>
+<p>在安装pwntools时因为网络问题,出现各种各样not installed</p>
+<p><img src="/.com//%5Cpip%E6%8D%A2%E6%BA%90%5C2.png" alt></p>
+<p>最后换源才不用一个包一个包的安装。</p>
+<p>国内源：</p>
+<p>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a> </p>
+<p>豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a> </p>
+<p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<p>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>下面介绍下换源的两种方法，我使用的是pip3，所以用pip3说明。</p>
+<p>第一种方法：</p>
+<p>单次换</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install * -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
 
-<p>把0改成2的38次方，进入下一关。<br></p>
-<p>下一个地址：<a href="http://www.pythonchallenge.com/pc/def/map.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/map.html</a></p>
-<h2 id="level1-What-about-making-trans"><a href="#level1-What-about-making-trans" class="headerlink" title="level1 What about making trans?"></a>level1 What about making trans?</h2><p>k→M，O→Q，E→G,都是有一两位</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">'''g fmnc wms bgblr rpylqjyrc gr zw fylb rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj'''</span></span><br><span class="line">flag=<span class="string">''</span></span><br><span class="line"></span><br><span class="line">fd=[<span class="string">' '</span>, <span class="string">'.'</span>,<span class="string">'('</span>,<span class="string">')'</span>,<span class="string">"'"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> str <span class="keyword">in</span> s:</span><br><span class="line">	<span class="keyword">if</span> str <span class="keyword">in</span> fd:</span><br><span class="line">		flag += str</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">if</span> str==<span class="string">'y'</span> <span class="keyword">or</span> str==<span class="string">'z'</span>:</span><br><span class="line">			flag += chr(ord(str)<span class="number">-24</span>)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			flag += chr(ord(str)+<span class="number">2</span>)</span><br><span class="line">			</span><br><span class="line">	</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<p>*代表要安装的包</p>
+<p>第二种方法：</p>
+<p>一劳永逸的换</p>
+<p>如果存在~/.pip3/pip3.conf就直接编辑这个文件，没有就创建一个。</p>
+<p>在其中填写一下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
 
-<p>输出结果<br>说不希望我们手动翻译，学习maketrans()这个函数，然后应用到url上，于是更新代码，使用这个函数可以用更少的代码完成上边功能，顺利过关。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">'''g fmnc wms bgblr rpylqjyrc gr zw fylb rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj'''</span></span><br><span class="line">flag=<span class="string">''</span></span><br><span class="line">maps=<span class="string">'map'</span></span><br><span class="line">intab= <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">outtab=<span class="string">'cdefghijklmnopqrstuvwxyzab'</span></span><br><span class="line"></span><br><span class="line">trantab=str.maketrans(intab,outtab)</span><br><span class="line"></span><br><span class="line">print(s.translate(trantab))</span><br><span class="line">print(maps.translate(trantab))</span><br></pre></td></tr></table></figure>
-
-<p>下一关地址:<a href="http://www.pythonchallenge.com/pc/def/ocr.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/ocr.html</a></p>
-<h2 id="level2-OCR"><a href="#level2-OCR" class="headerlink" title="level2 OCR"></a>level2 OCR</h2><p>不在书上就在源代码里，图片里的字看不清，于是查看源代码，在源代码里发现一大堆字符，字符上面还提示找到出现次数最少的字符。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">txt = open(<span class="string">'level2.txt'</span>,<span class="string">'r'</span>,encoding =<span class="string">'utf-8'</span>).read()</span><br><span class="line"></span><br><span class="line">list=[]</span><br><span class="line">list_n=[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> txt:</span><br><span class="line">	<span class="keyword">if</span> s <span class="keyword">in</span> list:</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	list.append(s)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> list:</span><br><span class="line">	num = txt.count(s)</span><br><span class="line">	list_n.append(num)</span><br><span class="line">	</span><br><span class="line">print(collections.OrderedDict(zip(list,list_n)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># equality</span></span><br></pre></td></tr></table></figure>
-
-<p>使用了collections这个包，先将出现的字符添加到list中，然后再统计list中元素出现次数，找到最少的。<br><br>下一关地址：<a href="http://www.pythonchallenge.com/pc/def/equality.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/equality.html</a></p>
-<h2 id="level3-re"><a href="#level3-re" class="headerlink" title="level3 re"></a>level3 re</h2><p>一个小写字母两边有三个大写字母，第一反应是用visual code直接正则表达式找到，但是正在学习python，还是用python的正则。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">txt = open(<span class="string">'level3.txt'</span>,<span class="string">'r'</span>).read()</span><br><span class="line"><span class="comment"># 找到中间一个小写字母，两侧分别被三个大写字母包围</span></span><br><span class="line">pattern = re.compile(<span class="string">r'[^A-Z][A-Z]&#123;3&#125;[a-z][A-Z]&#123;3&#125;[^A-Z]'</span>)</span><br><span class="line">m = pattern.findall(txt)</span><br><span class="line"><span class="keyword">print</span> (m)</span><br><span class="line"></span><br><span class="line"><span class="comment">#linkedlist</span></span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;qIQNlQSLi&apos;, &apos;eOEKiVEYj&apos;, &apos;aZADnMCZq&apos;, &apos;bZUTkLYNg&apos;, &apos;uCNDeHSBj&apos;, &apos;kOIXdKBFh&apos;, &apos;dXJVlGZVm&apos;, &apos;gZAGiLQZx&apos;, &apos;vCJAsACFl&apos;, &apos;qKWGtIDCj&apos;]</span><br></pre></td></tr></table></figure>
-
-<p>把中间的小写字母连在一起，过关。<br><br><br>下一个地址：<a href="http://www.pythonchallenge.com/pc/def/linkedlist.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/linkedlist.html</a></p>
-<h2 id="level4-follow-the-chain"><a href="#level4-follow-the-chain" class="headerlink" title="level4 follow the chain"></a>level4 follow the chain</h2><p>在页面注释中找到提示：urllib may help. DON’T TRY ALL NOTHINGS, since it will never end. 400 times is more than enough. </p>
-<p>点击图片显示and the next nothing is 44827，把url里的nothing改成44827跳转到下一页面，在第三次提示<label style="color:red">Your hands are getting tired</label></p>
-<p>按照提示应该是访问400次后进入下一关</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">nothing = <span class="number">12345</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">400</span>):</span><br><span class="line">	print(<span class="string">'第%d次'</span> % i)</span><br><span class="line">	url = <span class="string">'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=&#123;&#125;'</span>.format(nothing)</span><br><span class="line">	responce = urllib.request.urlopen(url)</span><br><span class="line">	html = responce.read()</span><br><span class="line">	soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">	body_text = soup.find(<span class="string">'body'</span>).text</span><br><span class="line">	nothing = (body_text.split(<span class="string">'.'</span>)).pop()</span><br><span class="line">	<span class="comment">#split() 通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</span></span><br><span class="line">	<span class="keyword">if</span> <span class="string">'html'</span> == nothing:</span><br><span class="line">		print(<span class="string">'-------------------------'</span>)</span><br><span class="line">		print(<span class="string">'over'</span>)</span><br><span class="line">		print(body_text)</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		nothing = (body_text.split(<span class="string">' '</span>)).pop()</span><br><span class="line">		print(nothing)</span><br><span class="line"><span class="comment">#peak.html</span></span><br></pre></td></tr></table></figure>
-
-<p>运行了一边不知道什么原因，在359次找到答案<br><br>下一关地址：<a href="http://www.pythonchallenge.com/pc/def/peak.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/peak.html</a></p>
-<h2 id="level5-peak-hell"><a href="#level5-peak-hell" class="headerlink" title="level5 peak hell"></a>level5 peak hell</h2>	
+<p>然后再使用pip就是从国内</p>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -385,12 +367,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/08/14/pip换源/" title="pip换源" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/06/02/jarvisoj学习笔记/" title="jarvisoj学习笔记" rel="next">
+			<a href="/2019/06/20/pythonchallenge学习笔记/" title="pythonchallenge学习笔记" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -411,27 +389,50 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/08/14/pip换源/" title="pip换源">
-								pip换源			
+							<a class="relate-post-title" href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">
+								su root命令验证失败			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								八月 14日, 2019				
+								四月 13日, 2018				
 							</p>
 							<p class="relate-post-content">
-								先问一下有人见过pip安装网络连接慢或者被墙然后一个一个包在主机里下完再转进Ubuntu里pip安装的吗??
-来过就是见过，我就是。
+								
+之前一直是使用sudo来执行需要root权限的命令，在一次偶然的使用中，我想直接用root权限，所以我要切换到root身份下，但当我使用su root命令时，输入密码告诉我身份验证失败
 
-在安装pwntools时因为网络问题,出现各种各样not installed
-
-最后换源才不用一个...
+su: Authentication fai...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/08/14/pip换源/" title="pip换源">				
+							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="pip换源"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/06/20/pythonchallenge学习笔记/" title="pythonchallenge学习笔记">
+								pythonchallenge学习笔记			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								为了学学爬虫，决定入门python，无意间找到这个网站，在其中练习练习
+level0 warming up地址：http://www.pythonchallenge.com/pc/def/0.html
+提示说：①try to chan...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/06/20/pythonchallenge学习笔记/" title="pythonchallenge学习笔记">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="pythonchallenge学习笔记"/>
 							</a>
 						</div>
 					</li>											
@@ -585,32 +586,6 @@ Ubuntu
 							<a href="/2018/05/14/计算机组成原理/" title="计算机组成原理">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="计算机组成原理"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">
-								su root命令验证失败			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								四月 13日, 2018				
-							</p>
-							<p class="relate-post-content">
-								
-之前一直是使用sudo来执行需要root权限的命令，在一次偶然的使用中，我想直接用root权限，所以我要切换到root身份下，但当我使用su root命令时，输入密码告诉我身份验证失败
-
-su: Authentication fai...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
 							</a>
 						</div>
 					</li>											

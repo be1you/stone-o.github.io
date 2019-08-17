@@ -311,7 +311,7 @@
 
 	<a href="/2018/05/14/计算机组成原理/" itemprop="url">
 		<time datetime="2018-05-14T08:27:53.000Z" itemprop="dateUpdated">
-	  		2019-06-05
+	  		2019-06-30
 	  </time>
 	</a> 
 
@@ -320,7 +320,13 @@
 		</span>
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/笔记/" class=" ">
+			笔记
+		</a>
+	
+		
 		</span>
 		
 		
@@ -330,8 +336,8 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><a id="more"></a>
-<h3 id="计算机层次结构"><a href="#计算机层次结构" class="headerlink" title="计算机层次结构"></a>计算机层次结构</h3><h4 id="计算机分类和发展方向"><a href="#计算机分类和发展方向" class="headerlink" title="计算机分类和发展方向"></a>计算机分类和发展方向</h4><ul>
+		<a id="more"></a>
+<h1 id="计算机层次结构"><a href="#计算机层次结构" class="headerlink" title="计算机层次结构"></a>计算机层次结构</h1><h2 id="计算机分类和发展方向"><a href="#计算机分类和发展方向" class="headerlink" title="计算机分类和发展方向"></a>计算机分类和发展方向</h2><ul>
 <li><p>指令和数据流</p>
 <ul>
 <li>单指令流&amp;单数据流SISD（冯诺依曼体系）</li>
@@ -347,9 +353,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h4><ul>
-<li>组成（软件和硬件在逻辑上是等效的）<ul>
-<li>硬件系统<br>CPU（运算器+控制器）<br>CPU+主存储器=主机<br>外设：输入设备、输出设备、辅助存储器<ul>
+<h2 id="计算机功能部件"><a href="#计算机功能部件" class="headerlink" title="计算机功能部件"></a>计算机功能部件</h2><ul>
+<li><p>组成（软件和硬件在逻辑上是等效的）</p>
+<ul>
+<li><p>硬件系统</p>
+<ul>
+<li>CPU（运算器+控制器）<br>CPU+主存储器=主机</li>
+<li>外设：输入设备、输出设备、辅助存储器</li>
 <li>输入设备</li>
 <li>输出设备</li>
 <li>运算器：处理原始数据、把计算结果输出到输出设备</li>
@@ -357,25 +367,47 @@
 <li>存储器：存储数据、指令（计算步骤或程序），方便运算器读取输出数据、指令。</li>
 </ul>
 </li>
+<li><p>软件系统</p>
+</li>
 </ul>
 </li>
 </ul>
+<h3 id="软硬件联系"><a href="#软硬件联系" class="headerlink" title="软硬件联系"></a>软硬件联系</h3><p><img src="/.com//.%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5C%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png" alt></p>
+<p>软件硬件无严格界限，互相依存，协同发展。</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p><img src="/.com//.%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5CCPU.png" alt></p>
 <ul>
-<li>软件系统</li>
-</ul>
-<p>以存储器为中心：</p>
-<p>以运算器为中心：</p>
-<h4 id="冯诺依曼体系结构"><a href="#冯诺依曼体系结构" class="headerlink" title="冯诺依曼体系结构"></a>冯诺依曼体系结构</h4><ul>
-<li><p>组成</p>
-<ul>
-<li><p>硬件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">主机：CPU(运算器+控制器)、内存</span><br><span class="line">总线：地址总线、控制总线、数据总线</span><br><span class="line">外设：输入、输出设备、外存储器</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>软件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>运算器<ul>
+<li>MQ 乘商寄存器（Multiple-Quotient Register）</li>
+<li>ACC 累加器（Accumulator）</li>
+<li>ALU 算术逻辑单元（Arithmetic and Logic Unit）组合逻辑</li>
+<li>X 通用寄存器</li>
+<li>PSW 程序状态字寄存器（Program Status Word）</li>
 </ul>
 </li>
+<li>控制器<ul>
+<li>CU 控制单元（Control Unit） 分析指令，给出控制信号。时序逻辑</li>
+<li>IR 指令寄存器（Instruction Register）存放当前执行的指令</li>
+<li>PC Program Counter 存放指令地址，有自动加1功能。</li>
 </ul>
+</li>
+</ul>
+<h4 id="取数指令"><a href="#取数指令" class="headerlink" title="取数指令"></a>取数指令</h4><p>取数分为三个阶段，取指令-&gt;分析指令-&gt;执行指令</p>
+<p><img src="/.com//%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5C%E5%8F%96%E6%95%B0%E6%8C%87%E4%BB%A4.png" alt></p>
+<p>CPU区分指令和数据的依据：指令周期的不同阶段。取指令阶段，取出的放到IR中，在执行指令阶段当作数据放入相应寄存器中。</p>
+<h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><p><img src="/.com//.%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5C%E5%AD%98%E5%82%A8%E5%99%A8.png" alt></p>
+<p>存储器存取数据由时序控制逻辑控制<br><br>存储体实现存储模式有很多种，工作模式类似。</p>
+<p>存储器数据寄存器（MAR）、存储器地址寄存器（MBR）在设计时属于主存，但是在实现过程中时做在CPU中。</p>
+<h4 id="译码器"><a href="#译码器" class="headerlink" title="译码器"></a>译码器</h4><p>n位地址，对应2的n次方个存储单元</p>
+<h2 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h2><ul>
+<li>计算机硬件系统由运算器、存储器、控制器、输入设备和输出设备5大部件组成。</li>
+<li>指令和数据以同等地位存于存储器内，并可按地址寻访。</li>
+<li>指令和数据均用二进制代码表示。</li>
+<li>指令由操作码和地址吗组成，操作码用来表示操作的性质，地址吗用来表示操作数在存储器中的位置。</li>
+<li>指令在存储器内按顺序存放。通常，指令是顺序执行的，在特定条件下，可根据运算结果或根据设定的条件改变执行顺序。</li>
+<li>早期的冯诺依曼机以运算器为中心，I/O设备通过运算器和存储器传送数据。</li>
+</ul>
+<h2 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h2><h3 id="容量"><a href="#容量" class="headerlink" title="容量"></a>容量</h3><p>总容量=存储单元个数x存储字长 bit</p>
+<p>系统所能支持的最大容量是2的地址位数次方x存储字长</p>
 	
 	</div>
 	
@@ -398,6 +430,10 @@
 				&laquo;上一篇
 			</a>
 		
+		
+			<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
 
@@ -413,6 +449,34 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/08/14/pip换源/" title="pip换源">
+								pip换源			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								先问一下有人见过pip安装网络连接慢或者被墙然后一个一个包在主机里下完再转进Ubuntu里pip安装的吗??
+来过就是见过，我就是。
+
+在安装pwntools时因为网络问题,出现各种各样not installed
+
+最后换源才不用一个...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/08/14/pip换源/" title="pip换源">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="pip换源"/>
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -455,7 +519,7 @@ level0 warming up地址：http://www.pythonchallenge.com/pc/def/0.html
 
 
 BASIC
-veryeasy题目描述：使用基本命令获取flag
+0x1 veryeasy题目描述：使用基本命令获取flag
 拿到文件先file一下，看文件类型。
 
 
@@ -465,7 +529,7 @@ veryeasy题目描述：使用基本命令获取flag
 
 在字符串中发现flag
 
-BASE64?题目描述：...
+0x2 BASE...
 							</p>
 						</div>
 
@@ -557,6 +621,32 @@ Ubuntu
 							<a href="/2018/12/01/hexo-从零搭建/" title="hexo 从零搭建(ubuntu)">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="hexo 从零搭建(ubuntu)"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">
+								su root命令验证失败			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 13日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
+之前一直是使用sudo来执行需要root权限的命令，在一次偶然的使用中，我想直接用root权限，所以我要切换到root身份下，但当我使用su root命令时，输入密码告诉我身份验证失败
+
+su: Authentication fai...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
 							</a>
 						</div>
 					</li>											

@@ -311,7 +311,7 @@
 
 	<a href="/2019/06/02/jarvisoj学习笔记/" itemprop="url">
 		<time datetime="2019-06-02T09:34:02.000Z" itemprop="dateUpdated">
-	  		2019-06-24
+	  		2019-08-17
 	  </time>
 	</a> 
 
@@ -336,7 +336,7 @@
 
 <blockquote>
 <h1 id="BASIC"><a href="#BASIC" class="headerlink" title="BASIC"></a>BASIC</h1></blockquote>
-<h2 id="veryeasy"><a href="#veryeasy" class="headerlink" title="veryeasy"></a>veryeasy</h2><pre><code>题目描述：使用基本命令获取flag</code></pre><blockquote>
+<h2 id="0x1-veryeasy"><a href="#0x1-veryeasy" class="headerlink" title="0x1 veryeasy"></a>0x1 veryeasy</h2><pre><code>题目描述：使用基本命令获取flag</code></pre><blockquote>
 <p>拿到文件先file一下，看文件类型。</p>
 </blockquote>
 <p><img src="http://ww1.sinaimg.cn/large/006WsJS2ly1g3n0k7wwtij30or0e0gn4.jpg" alt></p>
@@ -346,18 +346,18 @@
 <p><img src="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0ne6vs5j30qq06z3z4.jpg" alt></p>
 <p>在字符串中发现flag</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/006WsJS2ly1g3n0q9eaf2j30pu072x5b.jpg" alt></p>
-<h2 id="BASE64"><a href="#BASE64" class="headerlink" title="BASE64?"></a>BASE64?</h2><pre><code>题目描述：
+<h2 id="0x2-BASE64"><a href="#0x2-BASE64" class="headerlink" title="0x2 BASE64?"></a>0x2 BASE64?</h2><pre><code>题目描述：
 GUYDIMZVGQ2DMN3CGRQTONJXGM3TINLGG42DGMZXGM3TINLGGY4DGNBXGYZTGNLGGY3DGNBWMU3WI===</code></pre><blockquote>
 <p>看的字符串末尾等号，大概猜想字符串是base系列加密，3个等号又不符合base64，所以试下base32。<br>解密之后：504354467b4a7573745f743373745f683476335f66346e7d，十六进制，开整，获得flag。</p>
 </blockquote>
-<h2 id="手贱"><a href="#手贱" class="headerlink" title="手贱"></a>手贱</h2><pre><code>题目描述：某天A君的网站被日，管理员密码被改，死活登不上，去数据库一看，啥，这密码md5不是和原来一样吗？为啥登不上咧？
+<h2 id="0x3-手贱"><a href="#0x3-手贱" class="headerlink" title="0x3 手贱"></a>0x3 手贱</h2><pre><code>题目描述：某天A君的网站被日，管理员密码被改，死活登不上，去数据库一看，啥，这密码md5不是和原来一样吗？为啥登不上咧？
 
 d78b6f302l25cdc811adfe8d4e7c9fd34
 
 请提交PCTF{原来的管理员密码}</code></pre><blockquote>
 <p>为啥登不上，这是个33位的字符串，不是md5格式，一定是多了一位，再仔细一看，竟然有比f还靠后的，删除‘l’，解密。</p>
 </blockquote>
-<h2 id="段子"><a href="#段子" class="headerlink" title="段子"></a>段子</h2><pre><code>程序猿圈子里有个非常著名的段子：
+<h2 id="0x4-段子"><a href="#0x4-段子" class="headerlink" title="0x4 段子"></a>0x4 段子</h2><pre><code>程序猿圈子里有个非常著名的段子：
 
 手持两把锟斤拷，口中疾呼烫烫烫。
 
@@ -369,9 +369,69 @@ FLAG: PCTF{你的答案}</code></pre><blockquote>
 <p>使用python：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'PCTF&#123;%s&#125;'</span> % <span class="string">b'锟斤拷'</span>.encode(<span class="string">'hex'</span>).upper()</span><br><span class="line"><span class="string">'PCTF&#123;EFBFBDEFBFBD&#125;'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="美丽的实验室logo"><a href="#美丽的实验室logo" class="headerlink" title="美丽的实验室logo"></a>美丽的实验室logo</h2><pre><code>题目描述：出题人丢下个logo就走了，大家自己看着办吧</code></pre><blockquote>
+<h2 id="0x5-美丽的实验室logo"><a href="#0x5-美丽的实验室logo" class="headerlink" title="0x5 美丽的实验室logo"></a>0x5 美丽的实验室logo</h2><pre><code>题目描述：出题人丢下个logo就走了，大家自己看着办吧</code></pre><blockquote>
 <p>进winhex没看出什么，跑一边StegSolve,flag在frame里藏着。</p>
 </blockquote>
+<h2 id="0x6-字符串"><a href="#0x6-字符串" class="headerlink" title="0x6 -.-字符串"></a>0x6 -.-字符串</h2><pre><code>请选手观察以下密文并转换成flag形式
+
+..-. .-.. .- --. ..... ..--- ..--- ----- .---- ---.. -.. -.... -.... ..... ...-- ---.. --... -.. .---- -.. .- ----. ...-- .---- ---.. .---- ..--- -... --... --... --... -.... ...-- ....- .---- -----
+
+flag形式为32位大写md5
+
+题目来源：CFF2016</code></pre><blockquote>
+<p>典型的摩斯电码，直接进行<a href="http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx" target="_blank" rel="noopener">摩斯电码转换</a>，得到flag</p>
+<p>flag：522018D665387D1DA931812B77763410</p>
+</blockquote>
+<h2 id="0x7-关于USS-Lab"><a href="#0x7-关于USS-Lab" class="headerlink" title="0x7 关于USS Lab."></a>0x7 关于USS Lab.</h2><pre><code>USS的英文全称是什么，请全部小写并使用下划线连接_，并在外面加上PCTF{}之后提交</code></pre><blockquote>
+<p>通过谷歌、百度查到好几个释义，USS的释义有好几个，然后加上lab再查了一遍出答案，碰到知识盲区，又get到一个大佬们的实验室</p>
+</blockquote>
+<h2 id="0x8-Secret"><a href="#0x8-Secret" class="headerlink" title="0x8 Secret"></a>0x8 Secret</h2><pre><code>传说中的签到题
+
+题目入口：http://web.jarvisoj.com:32776/
+
+Hint1: 提交格式PCTF{你发现的秘密}</code></pre><blockquote>
+<p>打开网页只有一个Can you find the Secret?，再看了一眼源代码，还是没有，于是改用burp suite抓包，因为不熟悉vue.s，所以以为cookie中的UM_distinctid就是flag，提交了一次不对，最后在response中找到flag</p>
+</blockquote>
+<p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Csecret.png" alt></p>
+<h2 id="0x9-公倍数"><a href="#0x9-公倍数" class="headerlink" title="0x9 公倍数"></a>0x9 公倍数</h2><pre><code>请计算1000000000以内3或5的倍数之和。
+
+如：10以内这样的数有3,5,6,9，和是23
+
+请提交PCTF{你的答案}</code></pre><p>这是一道编程题，得专门跑几个小时才能出结果。flag有18位</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flag = <span class="number">0</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>,<span class="number">1000000000</span>):</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">3</span> == <span class="number">0</span> <span class="keyword">or</span> i % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        flag += int(i)</span><br><span class="line">        print(<span class="string">"flag="</span>,flag)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"-*- end -*-"</span>)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<p>一开始用的range()，一直提示我<em>Debug I/O （stdin, stdout, stderr） appears below</em>,换成xrange()之后就可以运行了</p>
+<h2 id="0x10-熟悉的声音"><a href="#0x10-熟悉的声音" class="headerlink" title="0x10 熟悉的声音"></a>0x10 熟悉的声音</h2><pre><code>两种不同的元素，如果是声音的话，听起来是不是很熟悉呢，据说前不久神盾局某位特工领便当了大家都很惋惜哦
+
+XYYY YXXX XYXX XXY XYY X XYY YX YYXX
+
+请提交PCTF{你的答案}</code></pre><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'XYYY YXXX XYXX XXY XYY X XYY YX YYXX'</span>.replace(<span class="string">'X'</span>,<span class="string">'.'</span>).replace(<span class="string">'Y'</span>,<span class="string">'-'</span>))</span><br><span class="line">.--- -... .-.. ..- .-- . .-- -. --..</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'XYYY YXXX XYXX XXY XYY X XYY YX YYXX'</span>.replace(<span class="string">'X'</span>,<span class="string">'-'</span>).replace(<span class="string">'Y'</span>,<span class="string">'.'</span>))</span><br><span class="line">-... .--- -.-- --. -.. - -.. .- ..--</span><br></pre></td></tr></table></figure>
+
+<p>分别解出两个字符串，提交提示错误，然后再进行凯撒解密。找到熟悉字眼。</p>
+<h2 id="0x11-shellcode"><a href="#0x11-shellcode" class="headerlink" title="0x11 shellcode"></a>0x11 shellcode</h2><pre><code>作为一个黑客，怎么能不会使用shellcode?
+
+这里给你一段shellcode，你能正确使用并最后得到flag吗？</code></pre><p>百度说，用<a href="https://github.com/inquisb/shellcodeexec" target="_blank" rel="noopener">shellcodeexec</a>跑一下就出来了，电脑还提示有毒，吓的差点没敢用，最后为ctf献身了。</p>
+<p>flag ：PCTF{Begin_4_good_pwnn3r}</p>
+<h2 id="0x12-取证"><a href="#0x12-取证" class="headerlink" title="0x12 取证"></a>0x12 取证</h2><pre><code>有一款取证神器如下图所示，可以从内存dump里分析出TureCrypt的密钥，你能找出这款软件的名字吗？名称请全部小写。</code></pre><p><img src="https://dn.jarvisoj.com/umeditor/20160608/28601465358215259.JPG" alt></p>
+<p>百度，你会得到你想要的</p>
+<h2 id="0x13-ROPGadget"><a href="#0x13-ROPGadget" class="headerlink" title="0x13 ROPGadget"></a>0x13 ROPGadget</h2><pre><code>都说学好汇编是学习PWN的基础，以下有一段ROPGadget的汇编指令序列，请提交其十六进制机器码(大写，不要有空格)
+
+XCHG EAX,ESP
+
+RET
+
+MOV ECX,[EAX]
+
+MOV [EDX],ECX
+
+POP EBX
+
+RET
+
+提交格式：PCTF{你的答案}</code></pre><p>试了好几种方法，最后用OD解决。</p>
+<p>把题目给的添加到OD里，然后查看该位置的16进制，去完空格加上PCTF{}，提交，OK。</p>
+<p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget1.png" alt></p>
+<p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget2.png" alt></p>
 <hr>
 <h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="findkey"><a href="#findkey" class="headerlink" title="findkey"></a>findkey</h2><pre><code>题目描述：FLAG就是你输入的key</code></pre><blockquote>
 <p>file一下，是pyc文件，更改后缀，使用uncompyle6反编译，获得源代码。</p>
@@ -381,13 +441,21 @@ FLAG: PCTF{你的答案}</code></pre><blockquote>
 <blockquote>
 <p>简单逻辑，输入flag，进行比较，并且限制了长度，那就好写了。写出解密算法。OK</p>
 </blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">17</span>):</span><br><span class="line">	flag += chr(lookup[i+pwdb[i]] - pwda[i] &amp; <span class="number">255</span> )</span><br><span class="line">flag = flag[::<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">print</span> flag</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">17</span>):</span><br><span class="line">	flag += chr(lookup[i+pwdb[i]] - pwda[i] &amp; <span class="number">255</span> )</span><br><span class="line">flag = flag[::<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">print</span> (flag)</span><br></pre></td></tr></table></figure>
 
 <p>注意：[::-1]是将原字符串先后顺序调换，[:-1]是去掉末尾字符。</p>
 <h2 id="Classical-Crackme"><a href="#Classical-Crackme" class="headerlink" title="Classical Crackme"></a>Classical Crackme</h2><pre><code>题目描述：经典Crackme题目，FLAG就是注册码。</code></pre><blockquote>
 <p>file一下，是32位的windows程序，直接进IDA，发现一段base64，解密后获得flag。</p>
 </blockquote>
-<h2 id><a href="#" class="headerlink" title="## "></a>## </h2><h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="Login"><a href="#Login" class="headerlink" title="Login"></a>Login</h2><hr>
+<p>## </p>
+<hr>
+<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="Login"><a href="#Login" class="headerlink" title="Login"></a>Login</h2><pre><code>需要密码才能获得flag哦。
+
+题目链接：http://web.jarvisoj.com:32772/</code></pre><p>在百度上得到这两条信息，ffifdyop ，<br>276f722736c95d99e921722cf9ed621c (‘or’6<trash>)
+然而并不明白是怎么回事，先记着，等懂了再来看</trash></p>
+<h2 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h2><pre><code>题目入口：http://web.jarvisoj.com:32792/</code></pre><p>进了之后只有一个hello world，经大佬指点，去看看robots.txt，去看了发现一个php，访问后返回<em>flag{hello guest}</em>，提交后不对，看着其实也不像，中间还是空格，和以往的格式不太一样，然后抓包把admin改成等于1，得到flag。</p>
+<h2 id="LOCALHOST"><a href="#LOCALHOST" class="headerlink" title="LOCALHOST"></a>LOCALHOST</h2><pre><code>题目入口：http://web.jarvisoj.com:32774/</code></pre><p>直接在请求头中加入X-Forwarded-For: 127.0.0.1，伪造出localhost。</p>
+<hr>
 <h1 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h1><h2 id="uncompyle6"><a href="#uncompyle6" class="headerlink" title="uncompyle6"></a>uncompyle6</h2><blockquote>
 <p>遇到一道pyc的逆向题，之前使用的是在线版的<a href="https://tool.lu/pyc/" target="_blank" rel="noopener">pyc解密</a>,偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在<a href="https://github.com/rocky/python-uncompyle6" target="_blank" rel="noopener">项目地址</a>进行下载安装。</p>
 </blockquote>
@@ -432,6 +500,34 @@ FLAG: PCTF{你的答案}</code></pre><blockquote>
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/08/14/pip换源/" title="pip换源">
+								pip换源			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 14日, 2019				
+							</p>
+							<p class="relate-post-content">
+								先问一下有人见过pip安装网络连接慢或者被墙然后一个一个包在主机里下完再转进Ubuntu里pip安装的吗??
+来过就是见过，我就是。
+
+在安装pwntools时因为网络问题,出现各种各样not installed
+
+最后换源才不用一个...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/08/14/pip换源/" title="pip换源">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="pip换源"/>
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -552,14 +648,14 @@ Ubuntu
 								五月 14日, 2018				
 							</p>
 							<p class="relate-post-content">
-								计算机组成原理
+								
 计算机层次结构计算机分类和发展方向
 指令和数据流
 
 单指令流&amp;单数据流SISD（冯诺依曼体系）
 单指令流&amp;多数据流SIMD（阵列处理器、向量处理器）
 多指令流&amp;单数据流MISD（不存在）
-多指令...
+多指令流&amp;多...
 							</p>
 						</div>
 
@@ -567,6 +663,32 @@ Ubuntu
 							<a href="/2018/05/14/计算机组成原理/" title="计算机组成原理">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="计算机组成原理"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">
+								su root命令验证失败			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 13日, 2018				
+							</p>
+							<p class="relate-post-content">
+								
+之前一直是使用sudo来执行需要root权限的命令，在一次偶然的使用中，我想直接用root权限，所以我要切换到root身份下，但当我使用su root命令时，输入密码告诉我身份验证失败
+
+su: Authentication fai...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
 							</a>
 						</div>
 					</li>											
