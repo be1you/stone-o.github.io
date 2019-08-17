@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      给Ubuntu软件一个桌面图标 | 等了你好久
+      数据结构 | 等了你好久
     
   </title>
   <meta name="author" content="北游">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《给Ubuntu软件一个桌面图标》
+			当前文章&nbsp;:&nbsp;《数据结构》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2018/12/02/给Ubuntu软件一个桌面图标/" itemprop="url">
-		给Ubuntu软件一个桌面图标
+	<a href="/2018/12/18/数据结构/" itemprop="url">
+		数据结构
 	</a>
 
 	</div>
@@ -291,9 +291,9 @@
 
 	发布于
 
-	<a href="/2018/12/02/给Ubuntu软件一个桌面图标/" itemprop="url">
-		<time datetime="2018-12-02T11:22:58.000Z" itemprop="datePublished">
-	  		2018-12-02
+	<a href="/2018/12/18/数据结构/" itemprop="url">
+		<time datetime="2018-12-18T10:17:52.000Z" itemprop="datePublished">
+	  		2018-12-18
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +309,9 @@
 
 	更新于
 
-	<a href="/2018/12/02/给Ubuntu软件一个桌面图标/" itemprop="url">
-		<time datetime="2018-12-02T11:22:58.000Z" itemprop="dateUpdated">
-	  		2018-12-02
+	<a href="/2018/12/18/数据结构/" itemprop="url">
+		<time datetime="2018-12-18T10:17:52.000Z" itemprop="dateUpdated">
+	  		2019-08-17
 	  </time>
 	</a> 
 
@@ -320,7 +320,13 @@
 		</span>
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/数据结构/" class=" ">
+			数据结构
+		</a>
+	
+		
 		</span>
 		
 		
@@ -330,22 +336,99 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<ul>
-<li><p>在Ubuntu上安装了一个ida64，安装卸载了三次，sudo也用上了，但就是没有桌面图标，菜单里也没有，怎么都找不到，只好给它做一个图标。</p>
+		<a id="more"></a>
+<ul>
+<li>数据结构<ul>
+<li>顺序表<ul>
+<li>顺序表的增删改查<ul>
+<li>常用排序方法（冒泡、选择、插入、希尔、桶、基数、快排、归并等）</li>
+</ul>
 </li>
-<li><p>在Ubuntu中，桌面图标在/usr/share/applications这个目录中，图标后缀是.desktop.使用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ida.desktop</span><br></pre></td></tr></table></figure>
+<li>队列</li>
+<li>栈</li>
+</ul>
 </li>
-<li><p>将一下信息填入编辑的文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=ida64</span><br><span class="line">Comment=ida64</span><br><span class="line">Exec=/home/stone/Programfile/idafree-7.0/ida64</span><br><span class="line">Icon=/home/stone/Programfile/idafree-7.0/appico64.png</span><br><span class="line">Terminal=false</span><br><span class="line">StartupNotify=true</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;</span><br></pre></td></tr></table></figure>
-
+<li>链表<ul>
+<li>单链表<ul>
+<li>单链表的增删改查</li>
+</ul>
+</li>
+<li>双链表</li>
+<li>链式队列与栈</li>
+</ul>
+</li>
+<li>环形结构（选修）</li>
+<li>块状表（选修）</li>
+</ul>
+</li>
+<li>树状结构<ul>
+<li>二叉树<ul>
+<li>二叉树的链式存储</li>
+<li>二叉树的线性存储</li>
+<li>二叉树的建立<ul>
+<li>霍夫曼树</li>
+</ul>
+</li>
+<li>二叉树的先序中序后序遍历</li>
+<li>二叉排序树<ul>
+<li>二叉排序树的建立</li>
+</ul>
+</li>
+<li>完全二叉树<ul>
+<li>堆的概念</li>
+<li>大顶堆与小顶堆</li>
+<li>堆排序与锦标赛排序</li>
+</ul>
+</li>
+<li>平衡二叉树<ul>
+<li>二叉树的旋转（选修）</li>
+</ul>
 </li>
 </ul>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>  <strong>Encoding</strong>:编码</p>
-<p>  <strong>Exex</strong>:软件可执行文件的位置</p>
-<p>  <strong>Icon</strong>:应用的桌面图标</p>
-<p>  <strong>Type</strong>：类型</p>
-<p>其他软件方法相同</p>
+</li>
+<li>多叉树<ul>
+<li>B+树（选修）</li>
+</ul>
+</li>
+<li>森林</li>
+</ul>
+</li>
+<li>网状结构<ul>
+<li>有向图与无向图、强连通图与弱连通图</li>
+<li>图中的环</li>
+<li>图的线性存储与矩形存储<ul>
+<li>边集与顶点集以及邻接表</li>
+<li>矩形及稀疏矩阵的链式存储</li>
+<li>十字链表与邻接多重表（选修）</li>
+</ul>
+</li>
+<li>图的遍历<ul>
+<li>深度优先遍历（栈）</li>
+<li>广度优先遍历（选修）</li>
+</ul>
+</li>
+<li>图的最小生成树<ul>
+<li>克鲁斯卡尔算法</li>
+<li>普里姆算法</li>
+</ul>
+</li>
+<li>图中两顶点间的最短路径<ul>
+<li>迪杰斯特拉算法</li>
+</ul>
+</li>
+<li>AOV网<ul>
+<li>拓扑排序</li>
+</ul>
+</li>
+<li>AOE网<ul>
+<li>关键路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h2><p>涉及内容：顺序表、链表、栈、队列</p>
+<h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><p><code>顺序表</code>：内存中一块连续的区域，相邻排列了多个相同类型的数据。使用顺序表要事先知道这些个数据的数量，知道数量以后才能根据数量开辟出大小合适的内存区域，不会造成空间空余或不足的情况。</p>
 	
 	</div>
 	
@@ -364,12 +447,12 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018/12/18/数据结构/" title="数据结构" rel="prev">
+			<a href="/2019/06/02/jarvisoj学习笔记/" title="jarvisoj学习笔记" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2018/12/01/md语法/" title="md语法" rel="next">
+			<a href="/2018/12/02/给Ubuntu软件一个桌面图标/" title="给Ubuntu软件一个桌面图标" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -482,48 +565,25 @@ BASIC
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018/12/18/数据结构/" title="数据结构">
-								数据结构			
+							<a class="relate-post-title" href="/2018/12/02/给Ubuntu软件一个桌面图标/" title="给Ubuntu软件一个桌面图标">
+								给Ubuntu软件一个桌面图标			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								十二月 18日, 2018				
+								十二月 2日, 2018				
 							</p>
 							<p class="relate-post-content">
 								
+在Ubuntu上安装了一个ida64，安装卸载了三次，sudo也用上了，但就是没有桌面图标，菜单里也没有，怎么都找不到，只好给它做一个图标。
 
-数据结构
-顺序表
-顺序表的增删改查
-常用排序方法（冒泡、选择、插入、希尔、桶、基数、快排、归并等）
-
-
-队列
-栈
-
-
-链表
-单链表
-单链表的增删改查
-
-
-双链表
-链式队列与栈
-
-
-环形结构（选修）
-块状表（选修）
-
-
-树状结构
-二...
+在Ubuntu中，桌面图标在/usr/share/applications这个目录中，图...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2018/12/18/数据结构/" title="数据结构">				
+							<a href="/2018/12/02/给Ubuntu软件一个桌面图标/" title="给Ubuntu软件一个桌面图标">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="数据结构"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="给Ubuntu软件一个桌面图标"/>
 							</a>
 						</div>
 					</li>											
