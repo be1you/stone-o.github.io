@@ -90,6 +90,10 @@
 	
 
 	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
 </ul>
 			</div>				
 		</div>
@@ -202,6 +206,10 @@
 		</li>
 	
 
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
 	
 </ul>
 	</div>
@@ -447,12 +455,10 @@ RET
 <h2 id="Classical-Crackme"><a href="#Classical-Crackme" class="headerlink" title="Classical Crackme"></a>Classical Crackme</h2><pre><code>题目描述：经典Crackme题目，FLAG就是注册码。</code></pre><blockquote>
 <p>file一下，是32位的windows程序，直接进IDA，发现一段base64，解密后获得flag。</p>
 </blockquote>
-<p>## </p>
-<hr>
+<h2 id><a href="#" class="headerlink" title></a></h2><hr>
 <h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="Login"><a href="#Login" class="headerlink" title="Login"></a>Login</h2><pre><code>需要密码才能获得flag哦。
 
-题目链接：http://web.jarvisoj.com:32772/</code></pre><p>在百度上得到这两条信息，ffifdyop ，<br>276f722736c95d99e921722cf9ed621c (‘or’6<trash>)
-然而并不明白是怎么回事，先记着，等懂了再来看</trash></p>
+题目链接：http://web.jarvisoj.com:32772/</code></pre><p>在百度上得到这两条信息，ffifdyop ，<br>276f722736c95d99e921722cf9ed621c (‘or’6<trash>)<br>然而并不明白是怎么回事，先记着，等懂了再来看</trash></p>
 <h2 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h2><pre><code>题目入口：http://web.jarvisoj.com:32792/</code></pre><p>进了之后只有一个hello world，经大佬指点，去看看robots.txt，去看了发现一个php，访问后返回<em>flag{hello guest}</em>，提交后不对，看着其实也不像，中间还是空格，和以往的格式不太一样，然后抓包把admin改成等于1，得到flag。</p>
 <h2 id="LOCALHOST"><a href="#LOCALHOST" class="headerlink" title="LOCALHOST"></a>LOCALHOST</h2><pre><code>题目入口：http://web.jarvisoj.com:32774/</code></pre><p>直接在请求头中加入X-Forwarded-For: 127.0.0.1，伪造出localhost。</p>
 <hr>
@@ -1030,6 +1036,54 @@ su: Authentication fai...
 
 
 
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/plugin/search/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
 
 
 <!-- love effect -->
