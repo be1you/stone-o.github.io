@@ -319,7 +319,7 @@
 
 	<a href="/2019/06/02/jarvisoj学习笔记/" itemprop="url">
 		<time datetime="2019-06-02T09:34:02.000Z" itemprop="dateUpdated">
-	  		2019-08-17
+	  		2019-09-05
 	  </time>
 	</a> 
 
@@ -422,6 +422,7 @@ XYYY YXXX XYXX XXY XYY X XYY YX YYXX
 <p>flag ：PCTF{Begin_4_good_pwnn3r}</p>
 <h2 id="0x12-取证"><a href="#0x12-取证" class="headerlink" title="0x12 取证"></a>0x12 取证</h2><pre><code>有一款取证神器如下图所示，可以从内存dump里分析出TureCrypt的密钥，你能找出这款软件的名字吗？名称请全部小写。</code></pre><p><img src="https://dn.jarvisoj.com/umeditor/20160608/28601465358215259.JPG" alt></p>
 <p>百度，你会得到你想要的</p>
+<p>PCTF{volatility}</p>
 <h2 id="0x13-ROPGadget"><a href="#0x13-ROPGadget" class="headerlink" title="0x13 ROPGadget"></a>0x13 ROPGadget</h2><pre><code>都说学好汇编是学习PWN的基础，以下有一段ROPGadget的汇编指令序列，请提交其十六进制机器码(大写，不要有空格)
 
 XCHG EAX,ESP
@@ -440,6 +441,21 @@ RET
 <p>把题目给的添加到OD里，然后查看该位置的16进制，去完空格加上PCTF{}，提交，OK。</p>
 <p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget1.png" alt></p>
 <p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget2.png" alt></p>
+<h2 id="爱吃培根的出题人"><a href="#爱吃培根的出题人" class="headerlink" title="爱吃培根的出题人"></a>爱吃培根的出题人</h2><pre><code>听说你也喜欢吃培根？那我们一起来欣赏一段培根的介绍吧：
+
+bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD tHAt PaIRs FlawLE
+
+什么，不知道要干什么？上面这段巨丑无比的文字，为什么会有大小写呢？你能发现其中的玄机吗？
+
+提交格式：PCTF{你发现的玄机}</code></pre><p>题目给了提示，说爱吃培根的出题人，所以就朝着培根密码思考，一开始看提目，提到大小写，所以把大写全部提出来，在搜索引擎里搜索一无所获。把小写全部变成A，大写全部换成B。然后再进行<a href="http://rumkin.com/tools/cipher/baconian.php" target="_blank" rel="noopener">培根解密</a>。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"bacoN is one of aMerICa'S sWEethEartS. it's A dARlinG, SuCCulEnt fOoD tHAt PaIRs FlawLE"</span></span><br><span class="line">flag_bacon=<span class="string">''</span></span><br><span class="line"></span><br><span class="line">len = len(s)</span><br><span class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">64</span> &lt; ord(letter) <span class="keyword">and</span> ord(letter) &lt; <span class="number">91</span>):</span><br><span class="line">        flag_bacon += <span class="string">'B'</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">96</span> &lt; ord(letter) <span class="keyword">and</span> ord(letter) &lt; <span class="number">123</span>):</span><br><span class="line">        flag_bacon += <span class="string">'A'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> flag_bacon</span><br></pre></td></tr></table></figure>
+
+<p>运行完成得到<em>AAAABAAAAAAAABAABBABABBAAABAAABAAABABBAAABBABBAABAAABABABBABABBABAAABB</em></p>
+<p>培根解密出现以下几个答案：<br>1、BACNMIRMNSFNND</p>
+<p>2、STXOTSNSS</p>
+<p>3、TUZPUTOTT</p>
+<p>4、BACONISNOTFOOD</p>
+<p>只有答案四是有意义的，大写提示错误，于是换成小写提交，OK。</p>
 <hr>
 <h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="findkey"><a href="#findkey" class="headerlink" title="findkey"></a>findkey</h2><pre><code>题目描述：FLAG就是你输入的key</code></pre><blockquote>
 <p>file一下，是pyc文件，更改后缀，使用uncompyle6反编译，获得源代码。</p>
@@ -461,11 +477,8 @@ RET
 题目链接：http://web.jarvisoj.com:32772/</code></pre><p>在百度上得到这两条信息，ffifdyop ，<br>276f722736c95d99e921722cf9ed621c (‘or’6<trash>)<br>然而并不明白是怎么回事，先记着，等懂了再来看</trash></p>
 <h2 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h2><pre><code>题目入口：http://web.jarvisoj.com:32792/</code></pre><p>进了之后只有一个hello world，经大佬指点，去看看robots.txt，去看了发现一个php，访问后返回<em>flag{hello guest}</em>，提交后不对，看着其实也不像，中间还是空格，和以往的格式不太一样，然后抓包把admin改成等于1，得到flag。</p>
 <h2 id="LOCALHOST"><a href="#LOCALHOST" class="headerlink" title="LOCALHOST"></a>LOCALHOST</h2><pre><code>题目入口：http://web.jarvisoj.com:32774/</code></pre><p>直接在请求头中加入X-Forwarded-For: 127.0.0.1，伪造出localhost。</p>
-<hr>
-<h1 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h1><h2 id="uncompyle6"><a href="#uncompyle6" class="headerlink" title="uncompyle6"></a>uncompyle6</h2><blockquote>
-<p>遇到一道pyc的逆向题，之前使用的是在线版的<a href="https://tool.lu/pyc/" target="_blank" rel="noopener">pyc解密</a>,偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在<a href="https://github.com/rocky/python-uncompyle6" target="_blank" rel="noopener">项目地址</a>进行下载安装。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle  a.pyc  &gt;  a.py</span><br></pre></td></tr></table></figure>	
+<h2 id="PORT51"><a href="#PORT51" class="headerlink" title="PORT51"></a>PORT51</h2><pre><code>题目链接：http://web.jarvisoj.com:32770/</code></pre><p>在请求中加入X-Forwarded-For: 127.0.0.1:51后还是不行，想着用python指定端口访问，然后发现curl可以指定端口访问相应目录，又在主机和虚拟机中使用<figure class="highlight plain"><figcaption><span>--local-port 51</span><a href="http://web.jarvisoj.com:32770/```,都是和其他端口相同，有一个提示，并没有flag，然后在服务器中执行同样的命令，得到flag：PCTF&#123;M45t3r_oF_CuRl&#125;" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"># tools</span><br><span class="line"></span><br><span class="line">## uncompyle6</span><br><span class="line">&gt; 遇到一道pyc的逆向题，之前使用的是在线版的[pyc解密](https://tool.lu/pyc/),偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在[项目地址](https://github.com/rocky/python-uncompyle6)进行下载安装。</span><br><span class="line"></span><br><span class="line">```s</span><br><span class="line">uncompyle  a.pyc  &gt;  a.py</span><br></pre></td></tr></table></figure></p>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -744,6 +757,33 @@ su: Authentication fai...
 							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018/03/05/Ubuntu卸载已安装软件/" title="Ubuntu卸载已安装软件">
+								Ubuntu卸载已安装软件			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 5日, 2018				
+							</p>
+							<p class="relate-post-content">
+								1、卸载
+sudo apt-get remove ***2、卸载软件及其依赖
+sudo apt-get remove --auto-remove ***3、清除该软件
+sudo apt-get purge ***或者
+sudo apt...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018/03/05/Ubuntu卸载已安装软件/" title="Ubuntu卸载已安装软件">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Ubuntu卸载已安装软件"/>
 							</a>
 						</div>
 					</li>											
