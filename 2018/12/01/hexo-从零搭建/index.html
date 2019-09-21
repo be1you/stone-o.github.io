@@ -351,7 +351,7 @@
 <p>生成ssh秘钥文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
 
-<p>再把生成的秘钥文件(~/.ssh/id_rsa.pub)上传到github上，在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> ：</p>
+<p>再把生成的秘钥文件(~/.ssh/id_rsa.pub)上传到github上，在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com">git@github.com</a> ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PTY allocation request failed on channel 0</span><br><span class="line">Hi stone-o! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
 
 <h3 id="3、安装Node-js"><a href="#3、安装Node-js" class="headerlink" title="3、安装Node.js"></a>3、安装Node.js</h3><p>Hexo基于Node.js，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v ;<br>检测npm是否安装成功，在命令行中输入npm -v.<br>如果尚未安装，在Ubuntu中可以直接用apt进行安装</p>
